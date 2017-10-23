@@ -6,7 +6,12 @@ class Creator::CompilationsController < ApplicationController
     
     def create
         @compilation = current_user.compilations.create(compilation_params)
-        redirect_to creator_compilation_path(@compilation)
+        
+        if @compilation.valid?
+            redirect_to creator_compilation_path(@compilation)
+        else
+            render :new, status: :unprocessable_entity
+        end
     end
     
     def show
