@@ -1,0 +1,10 @@
+<div class="box col-10 offset-1">
+    <h1>Add a New Compilation</h1>
+    <%= simple_form_for @compilation, url: creator_compilations_path do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :donation %>
+    <br>
+    <%= f.submit "Create", class: 'btn btn-success'%>
+    <% end %>
+</div>
