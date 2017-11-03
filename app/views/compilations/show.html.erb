@@ -1,3 +1,19 @@
-<div class="box col-10 offset-1">
-    <h1><%= @compilation.title %></h1>
+<div class="container">
+    <div class="box col-10 offset-1">
+        <h1 class="text-center"><%= @compilation.title %></h1>
+        <div class="row">
+            <div class="col-12">
+                <hr>
+                <p class="text-center">Suggested Donation - <%= number_to_currency @compilation.donation %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <%= @compilation.description %>
+            </div>
+        </div>
+        <% if current_user && current_user == @compilation.user %>
+        <%= link_to 'Administer', creator_compilation_path(@compilation), class: 'btn btn-danger' %>
+        <% end %>
+    </div>
 </div>

@@ -1,3 +1,22 @@
 <div class="box col-10 offset-1">
     <h1 class="text-center"><%= @compilation.title %></h1>
+    <%= link_to 'Preview as a Student', compilation_path(@compilation), class: 'btn' %>
+        <div class="text-center">
+            <%= link_to 'Add a New Section', new_creator_compilation_section_path(@compilation), class: 'btn' %>
+        </div>
+        <ul>
+            <% @compilation.sections.each do |section| %>
+                <li>
+                    <%= section.title %>
+                    <%= link_to 'New Subtopic', new_creator_section_subtopic_path(section), class: 'float-right btn' %>
+                    <ul>
+                        <% section.subtopics.each do |subtopic| %>
+                        <li>
+                            <p><%= subtopic.title %></p>
+                        </li>
+                        <% end %>
+                    </ul>
+                </li>
+                <% end %>
+        </ul>
 </div>

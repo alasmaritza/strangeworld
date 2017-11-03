@@ -1,0 +1,2 @@
+module Creator::SubtopicsHelper
+end
