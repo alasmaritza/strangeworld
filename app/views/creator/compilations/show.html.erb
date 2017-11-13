@@ -1,11 +1,14 @@
 <div class="box col-10 offset-1">
-    <h1 class="text-center"><%= @compilation.title %></h1>
-    <%= link_to 'Preview as a Student', compilation_path(@compilation), class: 'btn' %>
+    <h1 class="text-center"><%= current_compilation.title %></h1>
+    <div class="compilation-img">
+        <%= image_tag current_compilation.image %>
+    </div>
+    <%= link_to 'Preview as a Student', compilation_path(current_compilation), class: 'btn' %>
         <div class="text-center">
-            <%= link_to 'Add a New Section', new_creator_compilation_section_path(@compilation), class: 'btn' %>
+            <%= link_to 'Add a New Section', new_creator_compilation_section_path(current_compilation), class: 'btn' %>
         </div>
         <ul>
-            <% @compilation.sections.each do |section| %>
+            <% current_compilation.sections.each do |section| %>
                 <li>
                     <%= section.title %>
                     <%= link_to 'New Subtopic', new_creator_section_subtopic_path(section), class: 'float-right btn' %>

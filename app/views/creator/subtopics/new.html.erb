@@ -1,7 +1,7 @@
 <br>
 <div class="box col-10 offset-1">
     <h1>Create a New Subtopic</h1>
-    <%= simple_form_for @subtopic, url: creator_section_subtopics_path(@section) do |f| %>
+    <%= simple_form_for @subtopic, url: creator_section_subtopics_path(current_section) do |f| %>
         <%= f.input :title %>
         <%= f.submit "Add the Subtopic", class: 'btn' %>
     <% end %>

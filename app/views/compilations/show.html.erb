@@ -1,6 +1,7 @@
 <div class="container">
     <div class="box col-10 offset-1">
         <h1 class="text-center"><%= @compilation.title %></h1>
+        <%= image_tag  @compilation.image, class: 'img-fluid' %>
         <div class="row">
             <div class="col-12">
                 <hr>
@@ -15,5 +16,25 @@
         <% if current_user && current_user == @compilation.user %>
         <%= link_to 'Administer', creator_compilation_path(@compilation), class: 'btn btn-danger' %>
         <% end %>
+        
+        <div class="row">
+            <div class="col-12">
+                <% @compilation.sections.each do |section| %>
+                    <section>
+                        <small>- <%= section.title %></small>
+                        <br>
+                    </section>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="col-11 offset-1 subtopic">
+                <% section.subtopics.each do |subtopic| %>
+                    <%= link_to subtopic_path(subtopic) do %>
+                        <h4><%= subtopic.title %></h4>
+                    <% end %>
+                <% end %>
+            </div>
+            <% end %>
+        </div>
     </div>
 </div>

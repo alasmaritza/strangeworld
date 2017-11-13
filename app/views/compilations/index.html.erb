@@ -2,6 +2,7 @@
     <h1 class="text-center">Learn Something Today</h1>
     <% @compilations.each do |compilation| %>
         <h2 class="text-center"><%= link_to compilation.title, compilation_path(compilation) %></h2>
+        <%= image_tag compilation.image %>
         <div class="row">
         <div class="col-8 offset-2">
             <%= compilation.description %>

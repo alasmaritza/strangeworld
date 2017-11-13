@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static_pages#index'
   resources :compilations, only: [:index, :show]
+  resources :subtopics, only: [:show]
   namespace :creator do
     resources :sections, only: [] do
       resources :subtopics, only: [:new, :create]

@@ -1,6 +1,6 @@
 <div class="box col-10 offset-1">
     <h1>Add a New Section</h1>
-    <%= simple_form_for @section, url: creator_compilation_sections_path(@compilation) do |f| %>
+    <%= simple_form_for @section, url: creator_compilation_sections_path(current_compilation) do |f| %>
         <%= f.input :title %>
         <%= f.submit "Add a Section", class: 'btn' %>
     <% end %>
